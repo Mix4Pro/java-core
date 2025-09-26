@@ -15,7 +15,6 @@ class Task_3 {
 
         if (N > 0 && N != 1) { // Positive N
             for (int i = 1; i <= N; i++) {
-                System.out.println(" PR :  " + product);
                 product *= i;
             }
             System.out.println("The multiplication product of numbers up to N : " + product);
