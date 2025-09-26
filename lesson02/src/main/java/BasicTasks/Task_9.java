@@ -1,6 +1,5 @@
 package BasicTasks;
 
-
 import java.util.Scanner;
 
 // Display all the prime numbers up to N
@@ -11,7 +10,6 @@ class Task_9 {
         System.out.print("Please enter a number : ");
         int number = scanner.nextInt();
         scanner.close();
-        int sum = 0;
 
         if (number > 0) {
             for (int i = 1; i < number; i++) {
