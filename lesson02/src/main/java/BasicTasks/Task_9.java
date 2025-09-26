@@ -3,6 +3,7 @@ package BasicTasks;
 
 import java.util.Scanner;
 
+// Display all the prime numbers up to N
 class Task_9 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -22,7 +23,7 @@ class Task_9 {
                         }
                     }
                     if (counter == 1) {
-                        sum += i;
+                        System.out.print(i + " ");
                     }
                 }
             }
@@ -37,12 +38,10 @@ class Task_9 {
                     }
 
                     if (counter == 1) {
-                        sum += i;
+                        System.out.print(i + " ");
                     }
                 }
             }
         }
-
-        System.out.println("The sum of prime numbers up to " + number + " is " + sum);
     }
 }
