@@ -23,6 +23,7 @@ class Task_10 {
             right--;
         }
 
+
         left = 1;
         right = 4;
 
