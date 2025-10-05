@@ -1,6 +1,5 @@
 package lesson02.BasicTasks;
 
-// Comment for a pull
 
 // Display all numbers up to 100 ( every 10 numbers should be displayed in a row )
 class Task_1 {
