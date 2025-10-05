@@ -5,7 +5,7 @@ import java.util.Scanner;
 class BankAccount {
     private final String fio;
     private static int idCreator = 0;
-    private int accountNumber = 0;
+    private int accountNumber;
     private double balance = 0;
 
     BankAccount (String fio) {
@@ -28,11 +28,16 @@ class BankAccount {
     }
 
     public boolean withdraw (double withdraw_amount) {
-        if(withdraw_amount <= this.balance) {
+        if(withdraw_amount <= this.balance && withdraw_amount > 0) {
             this.balance -= withdraw_amount;
 
             return true;
-        }else{
+        }else if(withdraw_amount <= 0) {
+            System.out.println();
+            System.out.println("You can't withdraw 0 USDs or less");
+
+            return false;
+        } else{
             System.out.println();
             System.out.println("Withdrawal amount is greater than the amount of balance");
 
@@ -52,7 +57,7 @@ class BankAccount {
     }
 }
 
-class Main {
+class BankAccountMain {
     public static void main (String[] args) {
         Scanner scanner = new Scanner (System.in);
 
@@ -147,6 +152,7 @@ class Main {
                     System.out.println("----------------------------------");
             }
         }
+        scanner.close();
     }
 }
 

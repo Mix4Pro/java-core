@@ -38,6 +38,8 @@ class Task_3 {
         System.out.print("Please enter the year when the car was created : ");
         yearOfManufacture = scanner.nextInt();
 
+        scanner.close();
+
         if(yearOfManufacture < 0){
             System.out.println("The year can't be less than 0");
         }else{
