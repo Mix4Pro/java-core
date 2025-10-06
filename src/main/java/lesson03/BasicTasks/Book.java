@@ -86,6 +86,8 @@ class BookMain {
         int year_2 = scanner.nextInt();
         scanner.nextLine();
 
+        scanner.close();
+
         if(year >= 0 && year_2 >= 0) {
             Book book = new Book (name,author,year);
             Book book_2 = new Book (name_2 , author_2 , year_2);
