@@ -2,13 +2,13 @@ package lesson03.BasicTasks;
 
 import java.util.Scanner;
 
-class BankAccount {
+public class BankAccount {
     private final String fio;
     private static int idCreator = 0;
     private int accountNumber;
     private double balance = 0;
 
-    BankAccount (String fio) {
+    public BankAccount (String fio) {
         ++idCreator;
         this.accountNumber = idCreator;
         this.fio = fio;
@@ -47,6 +47,14 @@ class BankAccount {
 
     public double getBalance () {
         return this.balance;
+    }
+
+    public String getFio () {
+        return this.fio;
+    }
+
+    public int getAccountNumber () {
+        return this.accountNumber;
     }
 
     public void showFullInfo () {

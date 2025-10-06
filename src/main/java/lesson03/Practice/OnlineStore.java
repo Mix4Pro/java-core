@@ -12,19 +12,19 @@ class OnlineStore {
 
     private static ArrayList<OnlineStore> itemsCollection = new ArrayList<>();
 
-    OnlineStore () {
+    OnlineStore() {
         this.code = 0;
         this.name = "";
         this.price = 0;
         this.count = 0;
     }
 
-    OnlineStore(String name , double price , int count) {
-        if(price <= 0){
+    OnlineStore(String name, double price, int count) {
+        if (price <= 0) {
             throw new IllegalArgumentException("Price should be greater than 0");
-        }else if (count < 0){
+        } else if (count < 0) {
             throw new IllegalArgumentException("Quantity of available products can't be less than 0");
-        }else{
+        } else {
             ++codeGenerator;
             this.code = codeGenerator;
             this.name = name;
@@ -33,27 +33,27 @@ class OnlineStore {
         }
     }
 
-    public void addProduct () {
+    public void addProduct() {
         boolean found = false;
-        for(OnlineStore item : itemsCollection) {
-            if(item.code == this.code) {
+        for (OnlineStore item : itemsCollection) {
+            if (item.code == this.code) {
                 found = true;
             }
         }
 
-        if(!found) {
+        if (!found) {
             itemsCollection.add(this);
-        }else{
+        } else {
             System.out.println("This item already exists");
         }
     }
 
-    public void buyProduct () {
-        for(OnlineStore item : itemsCollection) {
-            if(item.code == this.code) {
-                if(item.count <= 0) {
+    public void buyProduct() {
+        for (OnlineStore item : itemsCollection) {
+            if (item.code == this.code) {
+                if (item.count <= 0) {
                     System.out.println("The item is out of stock");
-                }else{
+                } else {
                     --item.count;
                     System.out.println("The item has been bought successfully");
                 }
@@ -61,7 +61,7 @@ class OnlineStore {
         }
     }
 
-    public void getProductInfo () {
+    public void getProductInfo() {
         System.out.println("The information about the product : ");
         System.out.println("Name : " + this.name);
         System.out.println("Price : " + this.price);
@@ -69,11 +69,11 @@ class OnlineStore {
         System.out.println("Code : " + this.code);
     }
 
-    public void getProducts () {
-        if(itemsCollection.isEmpty()){
+    public void getProducts() {
+        if (itemsCollection.isEmpty()) {
             System.out.println("There is no item in the list");
-        }else{
-            for(OnlineStore item : itemsCollection) {
+        } else {
+            for (OnlineStore item : itemsCollection) {
                 item.getProductInfo();
                 System.out.println();
             }
@@ -83,7 +83,7 @@ class OnlineStore {
 
 
 class OnlineStoreMain {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the name of the product : ");
@@ -106,12 +106,12 @@ class OnlineStoreMain {
         int count_2 = scanner.nextInt();
         scanner.nextLine();
 
-        OnlineStore item = new OnlineStore(name,price,count);
-        OnlineStore item_2 = new OnlineStore(name_2,price_2,count_2);
+        OnlineStore item = new OnlineStore(name, price, count);
+        OnlineStore item_2 = new OnlineStore(name_2, price_2, count_2);
 
         int choice = 0;
 
-        while(choice != 5) {
+        while (choice != 5) {
             System.out.println();
             System.out.println("What do you want to do ?");
             System.out.println("1) Add a product");
@@ -124,7 +124,7 @@ class OnlineStoreMain {
 
             choice = scanner.nextInt();
 
-            switch (choice){
+            switch (choice) {
                 case 1:
                     item.addProduct();
                     item_2.addProduct();
