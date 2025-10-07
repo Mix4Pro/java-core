@@ -1,16 +1,15 @@
 package lesson03.Practice;
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class OnlineStore {
     private static int codeGenerator = 0;
+    private static final ArrayList<OnlineStore> itemsCollection = new ArrayList<>();
     private final int code;
     private final String name;
-    private double price;
+    private final double price;
     private int count;
-
-    private static ArrayList<OnlineStore> itemsCollection = new ArrayList<>();
 
     OnlineStore() {
         this.code = 0;
@@ -38,6 +37,7 @@ class OnlineStore {
         for (OnlineStore item : itemsCollection) {
             if (item.code == this.code) {
                 found = true;
+                break;
             }
         }
 

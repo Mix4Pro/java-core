@@ -7,7 +7,7 @@ class Car {
     private final String model;
     private final int yearOfManufacture;
 
-    Car (String country , String model , int yearOfManufacture) {
+    Car(String country, String model, int yearOfManufacture) {
         this.country = country;
         this.model = model;
         this.yearOfManufacture = yearOfManufacture;
@@ -22,8 +22,8 @@ class Car {
 }
 
 class Task_3 {
-    public static void main (String[] args) {
-        Scanner scanner = new Scanner (System.in);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         String country;
         String model;
@@ -40,10 +40,10 @@ class Task_3 {
 
         scanner.close();
 
-        if(yearOfManufacture < 0){
+        if (yearOfManufacture < 0) {
             System.out.println("The year can't be less than 0");
-        }else{
-            Car newCar = new Car(country,model,yearOfManufacture);
+        } else {
+            Car newCar = new Car(country, model, yearOfManufacture);
 
             newCar.printCarInfo();
         }
