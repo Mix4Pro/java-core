@@ -35,15 +35,19 @@ class BankSystem{
 
     public void deleteAccount(BankAccount account){
         boolean found = false;
+        int found_index = 0;
         for(BankAccount collection_account : accountsCollection){
             if(collection_account.getAccountNumber() == account.getAccountNumber()){
                 found = true;
-                accountsCollection.remove(account);
+                found_index = accountsCollection.indexOf(collection_account);
             }
         }
 
         if(!found) {
             System.out.println("There is no account like this in the collection");
+        }else{
+            accountsCollection.remove(found_index);
+            System.out.println("Account has been deleted");
         }
     }
 
@@ -100,15 +104,19 @@ class BankSystemMain {
 
         System.out.println("Let's first create an account");
 
-        System.out.print("Enter your full name : ");
+        System.out.print("Enter your full name (account 1) : ");
         String fio = scanner.nextLine();
 
+        System.out.print("Enter your full name (account 2) : ");
+        String fio_2 = scanner.nextLine();
+
         BankAccount account = new BankAccount(fio);
+        BankAccount account_2 = new BankAccount(fio_2);
         BankSystem bank = new BankSystem();
 
         int choice = 0;
 
-        while(choice != 5) {
+        while(choice != 6) {
             System.out.println("There are options you can do : ");
             System.out.println("1) Get account information");
             System.out.println("2) Add account");
@@ -116,6 +124,7 @@ class BankSystemMain {
             System.out.println("4) Replenish account");
             System.out.println("5) Transfer money from your account to another one");
             System.out.println("6) Exit");
+            System.out.print("Choose one of the options : ");
 
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -123,9 +132,12 @@ class BankSystemMain {
             switch(choice){
                 case 1:
                     bank.getAccountInfo(account);
+                    System.out.println();
+                    bank.getAccountInfo(account_2);
                     break;
                 case 2:
                     bank.addAccount(account);
+                    bank.addAccount(account_2);
                     break;
                 case 3:
                     bank.deleteAccount(account);
@@ -137,10 +149,11 @@ class BankSystemMain {
                     bank.replenishAccount(account,amount_to_deposit);
                     break;
                 case 5:
-                    System.out.print("Enter the account number that you want to transfer your money to");
+                    System.out.print("Enter the account number that you want to transfer your money to : ");
                     int recieving_account = scanner.nextInt();
                     System.out.print("Enter the amount you want to the account with the account number of " + recieving_account + " : ");
                     double amount_to_transfer = scanner.nextDouble();
+                    scanner.nextLine();
                     bank.transferMoneyBetweenAccounts(account,recieving_account,amount_to_transfer);
                     break;
                 case 6:
