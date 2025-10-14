@@ -1,34 +1,44 @@
 package lesson06;
 
 public class Place {
-    private String placeId;
-    private boolean bookingStatus;
+    private final String placeId;
+    private boolean isBooked;
     private String nameOfPassanger;
-    private placeType type;
+    private final placeType type;
 
 
-    public enum placeType {BUSINESS , ECONOMY , LIMITED_RECLINE};
-
-
-    Place (String placeId , placeType type) {
+    Place(String placeId, placeType type) {
         this.placeId = placeId;
-        this.bookingStatus = false;
+        this.isBooked = false;
         this.nameOfPassanger = "";
         this.type = type;
     }
 
+
+    Place(String placeId, placeType type, boolean bookingStatus, String nameOfPassanger) {
+        this.placeId = placeId;
+        this.isBooked = bookingStatus;
+        this.nameOfPassanger = nameOfPassanger;
+        this.type = type;
+    }
+
     // Getters
-    public String getPlaceId () { return this.placeId; }
-    public boolean getBookingStatus () { return this.bookingStatus; }
-    public String getNameOfPassanger () { return this.nameOfPassanger; }
-    public placeType getType () { return this.type; }
+    public String getPlaceId() {return this.placeId;}
+
+    public boolean getBookingStatus() {return this.isBooked;}
 
     // Setters
-    public void setBookingStatus (boolean status) {
-        this.bookingStatus = status;
+    public void setBookingStatus(boolean status) {
+        this.isBooked = status;
     }
 
-    public void setNameOfPassanger (String name) {
+    public String getNameOfPassanger() {return this.nameOfPassanger;}
+
+    public void setNameOfPassanger(String name) {
         this.nameOfPassanger = name;
     }
+
+    public placeType getType() {return this.type;}
+
+    public enum placeType {BUSINESS, ECONOMY, LIMITED_RECLINE}
 }
