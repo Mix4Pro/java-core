@@ -1,4 +1,4 @@
-package lesson11;
+package lesson11.Project_1;
 
 import java.util.LinkedList;
 import java.util.Queue;
