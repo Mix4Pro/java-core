@@ -16,7 +16,6 @@ public class Main {
 
         publisher_td.start();
 
-        
         subscriber.start();
 
         try {
