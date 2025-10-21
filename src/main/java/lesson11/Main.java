@@ -15,6 +15,8 @@ public class Main {
         Thread subscriber = new Thread(new Subscriber(wordCollection, status));
 
         publisher_td.start();
+
+        
         subscriber.start();
 
         try {
